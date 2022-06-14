@@ -1,0 +1,24 @@
+{
+    "blogs" : [
+        { 
+            "title": "Learning React",
+            "body" : "lorem Ipsum",
+            "author": "Harsha",
+            "id": 1
+        },
+
+        { 
+            "title": "Outputting Lists",
+            "body": "lorem Ipsum",
+            "author": "Dhruv",
+            "id": 2
+        },
+
+        { 
+            "title": "From Youtube",
+            "body": "lorem Ipsum",
+            "author": "Harsha",
+            "id": 3
+        }  
+    ]
+}
