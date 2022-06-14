@@ -6,22 +6,27 @@ const useFetch = ((url)=>{
     const [data,setData] = useState(null);
 
     useEffect(() =>{
-
-        fetch('http://localhost:8000/blogs')
+        const abortCont = new AbortController();
+        fetch(url,{ signal : abortCont.signal})
             .then((res) => {
                 if(!res.ok){
                     throw Error('Could not fetch data');
                 }
                 return res.json()})
             .then((data)=>{
-                console.log(data);
                 setData(data);
                 setIsPending(false);
                 setError(null);
             }).catch((err) => {
-                setError(err.message);
-                setIsPending(false);
+                if(err.name === 'AbortError'){
+                    console.log('Fetch Aborted');
+                }
+                else{
+                    setError(err.message);
+                    setIsPending(false);
+                }
             })
+            return () => abortCont.abort() 
         },[url])
         return {data,isPending,error}
 })
