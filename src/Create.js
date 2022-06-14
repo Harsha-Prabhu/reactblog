@@ -1,20 +1,23 @@
 import {useState} from 'react'
+import { useNavigate } from "react-router-dom";
 const Create = () => {
     const [title,setTitle] = useState('')
     const [author,setAuthor] = useState('')
     const [body,setBody] = useState('')
     const [isPending,setIsPending] = useState(false)
+    const navigate = useNavigate()
     const handleSubmit = (e) => {
         e.preventDefault();
         setIsPending(true)
         const blog = {title,author,body};
-        fetch('http://localhost:3000/blogs/',{
+        fetch('http://localhost:8000/blogs/',{
             method : 'POST',
             headers : {'Content-type':'application/json'},
             body : JSON.stringify(blog)
         }).then(() =>{
             console.log('new blog added');
             setIsPending(false)
+            navigate('/');
         })
     };
     return ( 
