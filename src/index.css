@@ -41,28 +41,51 @@
   padding: 20px;
 }
 
-.blog-list h1{
+.Home{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.blog-list-heading {
+  display: flex;
   margin-bottom: 1.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.blog-list-heading h1{
+  font-size: 3.5rem;
 }
 
 .blog-list {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  width: 50%;
+  align-items: center;
 }
 
 .blog-preview {
   padding:1rem;
-  display: flex;
+  display: block;
   align-items: center;
   flex-direction: column;
-  justify-content: left;
+  width:fit-content;
 }
 
+.blog-preview:hover{
+  box-shadow: 0px 0px 10px rgba(0,0,0, 0.6);
+}
 a{
   text-decoration: none;
+}
+
+.blog-full{
+  margin: 0 25%;;  
+}
+article {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
 }
 
 article h1{
@@ -71,5 +94,76 @@ article h1{
 
 article h3{
   padding-top: 2rem;
-  padding-right: 50%;
+  
+}
+
+.blog-full,.Form-Button button{
+  color: white;
+  font-weight: bold;
+  background-color: #f1356d;
+  border: 1px solid white;
+  border-radius: 1rem;
+  padding:1rem;
+  margin-top: 5%;
+  cursor: pointer;
+}
+.Create-content{
+  display:flex;
+  align-items:center;
+  justify-content: space-around;
+}
+.Create-Form {
+  background-color: #f1356d;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center;
+  width: max-content;
+  margin-top: 5%;
+  padding: 2rem;
+  border-radius: 5rem ;
+  
+}
+
+.Create-Form h1{
+  font-size: 2.25rem;
+}
+
+.Create-Form form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10%;
+}
+
+.Blog-Title-Form,.Blog-Author-Form,.Blog-Body-Form{
+  display:flex;
+  align-items:center;
+  margin-top: 5%;
+  width: 100%;
+  justify-content: space-between;
+
+}
+
+.Blog-Title-Form label,.Blog-Author-Form label,.Blog-Body-Form label{
+  margin-right: 4rem;
+  font-weight: bold;
+  font-size: 1.25rem;
+  white-space: nowrap;
+}
+
+.Blog-Title-Form input,.Blog-Author-Form input,.Blog-Body-Form textarea{
+  width: 15rem;
+}
+.Form-Button{
+  margin-top: 15%;
+}
+
+@media (max-width: 755px){
+  article h1{
+    font-size: 2rem;
+  }
+  article h3{
+    font-size: 1rem;    
+  }
 }

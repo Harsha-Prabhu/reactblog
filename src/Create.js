@@ -10,7 +10,7 @@ const Create = () => {
         e.preventDefault();
         setIsPending(true)
         const blog = {title,author,body};
-        fetch('http://localhost:8000/blogs/',{
+        fetch('https://server-for-json.herokuapp.com/blogs',{
             method : 'POST',
             headers : {'Content-type':'application/json'},
             body : JSON.stringify(blog)
@@ -21,29 +21,37 @@ const Create = () => {
         })
     };
     return ( 
-        <div>
-            <h1>Create Page</h1>
-            <form onSubmit ={handleSubmit}>
-                <label>Blog Title : </label>
-                <input type="text" 
-                required
-                value={title}
-                onChange = {(e) => setTitle(e.target.value)}/>
-                <label>Author : </label>
-                <input type="text" 
-                required
-                value={author}
-                onChange = {(e) => setAuthor(e.target.value)}/>
-                <label> Body : </label>
-                <textarea
-                required
-                value={body}
-                onChange = {(e) => setBody(e.target.value)}/>
-                {!isPending && <button>Add Blog</button>}
-                {isPending && <button>Adding...</button>}
-                <p>{title}{author}{body}</p>
-            </form>
-
+        <div className="Create-content">
+            <div className='Create-Form'>
+                <h1>Add a Blog</h1>
+                <form onSubmit ={handleSubmit}>
+                    <div className="Blog-Title-Form">
+                        <label>Blog Title : </label>
+                        <input type="text" 
+                        required
+                        value={title}
+                        onChange = {(e) => setTitle(e.target.value)}/>
+                    </div>
+                    <div className="Blog-Author-Form">
+                        <label>Author : </label>
+                        <input type="text" 
+                        required
+                        value={author}
+                        onChange = {(e) => setAuthor(e.target.value)}/>
+                    </div>
+                    <div className="Blog-Body-Form">
+                        <label> Body : </label>
+                        <textarea
+                        required
+                        value={body}
+                        onChange = {(e) => setBody(e.target.value)}/>
+                    </div>
+                    <div className="Form-Button">
+                        {!isPending && <button>Add Blog</button>}
+                        {isPending && <button>Adding...</button>}
+                    </div>
+                </form>
+            </div>   
         </div>
      );
 }
