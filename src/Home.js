@@ -8,7 +8,7 @@ const Home = () => {
     //     const newBlogs = blogs.filter(blog => blog.id !== id);
     //     setBlogs(newBlogs);
     // }
-    const db_url = "http://localhost:8000/blogs"
+    const db_url = "https://server-for-json.herokuapp.com/blogs"
     const {error,isPending,data:blogs} = useFetch(db_url);
 
 

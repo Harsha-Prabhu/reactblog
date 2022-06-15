@@ -4,11 +4,11 @@ import {useNavigate} from 'react-router-dom'
 
 const BlogDetails = () => {
     const { id } = useParams();
-    const db_url = `http://localhost:8000/blogs/${id}`
+    const db_url = `https://server-for-json.herokuapp.com/blogs/${id}`
     const {error,isPending,data:blog} = useFetch(db_url);
     const navigate  = useNavigate();
     const handleDelete = () =>{
-        fetch('http://localhost:8000/blogs/'+ id,{
+        fetch('https://server-for-json.herokuapp.com/blogs/'+ id,{
             method: 'DELETE',
         }).then(() =>{
             navigate('/');
